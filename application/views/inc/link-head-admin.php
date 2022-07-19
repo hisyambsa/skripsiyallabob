@@ -16,7 +16,7 @@
   <title><?php echo $judul ?></title>
   <link rel="stylesheet" id='compiled.css-css' media="all" href="<?php echo base_url('assets/node_modules/_core/css/bootstrap.min.css') ?>">
 
-<!-- 
+  <!-- 
   mystyle
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/myStyle.css') ?>">
   <link rel='stylesheet' href='<?php echo base_url('assets/node_modules/fullcalendar/dist/fullcalendar.css'); ?>' />
@@ -26,58 +26,57 @@
 
 <link rel="stylesheet" href="<?php echo base_url('assets/node_modules/lightbox2/dist/css/lightbox.css') ?>"> -->
 
-<?php 
-		if (empty($_GET['code'])) {
-		
-		?>
-		  <script src="<?php echo base_url('assets/node_modules/sweetalert2/dist/sweetalert2.all.js') ?>"></script>
-		
-		<?php
-		}
+  <?php
+  if (empty($_GET['code'])) {
 
- ?>
+  ?>
+    <script src="<?php echo base_url('assets/node_modules/sweetalert2/dist/sweetalert2.all.js') ?>"></script>
 
+  <?php
+  }
 
+  ?>
 
 
 
 
 
-<!--  <div id="mdb-preloader" class="flex-center">-->
-<!--    <div id="preloader-markup">-->
-<!--Big blue-->
-<!--<div class="preloader-wrapper active">-->
-<!--  <div class="spinner-layer spinner-blue-only">-->
-<!--    <div class="circle-clipper left">-->
-<!--      <div class="circle"></div>-->
-<!--    </div>-->
-<!--    <div class="gap-patch">-->
-<!--      <div class="circle"></div>-->
-<!--    </div>-->
-<!--    <div class="circle-clipper right">-->
-<!--      <div class="circle"></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--    </div>-->
-<!--    <p class="text-white"> &nbsp &nbsp Loading...</p>-->
-<!--<p class="text-white"> build with love : @hisyambsa</p>-->
-<!--  </div>-->
-
-  
 
 
-  
+  <!--  <div id="mdb-preloader" class="flex-center">-->
+  <!--    <div id="preloader-markup">-->
+  <!--Big blue-->
+  <!--<div class="preloader-wrapper active">-->
+  <!--  <div class="spinner-layer spinner-blue-only">-->
+  <!--    <div class="circle-clipper left">-->
+  <!--      <div class="circle"></div>-->
+  <!--    </div>-->
+  <!--    <div class="gap-patch">-->
+  <!--      <div class="circle"></div>-->
+  <!--    </div>-->
+  <!--    <div class="circle-clipper right">-->
+  <!--      <div class="circle"></div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <!--    </div>-->
+  <!--    <p class="text-white"> &nbsp &nbsp Loading...</p>-->
+  <!--<p class="text-white"> build with love : @hisyambsa</p>-->
+  <!--  </div>-->
+
+
+
+
+
   <script>
 
-    let base_url = '<?php echo base_url();?>'
 
   </script>
 </head>
 
 
 <script>
-  function redirectPesan(type='error',pesan) {
+  function redirectPesan(type = 'error', pesan) {
     Swal.fire({
       type: type,
       title: pesan,
@@ -86,7 +85,7 @@
     })
   }
 
-  function confirmHapus(judul='tidak ada judul',pesan='tidak ada pesan',pindah='<?php echo base_url();?>') {
+  function confirmHapus(judul = 'tidak ada judul', pesan = 'tidak ada pesan', pindah = '<?php echo base_url(); ?>') {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -104,11 +103,11 @@
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        window.location=pindah;
-      }else if (
-    // Read more about handling dismissals
-    result.dismiss === Swal.DismissReason.cancel
-    ) {
+        window.location = pindah;
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
 
       }
     })
@@ -184,10 +183,3 @@ $('.datepickerBooking').pickadate({
 });
 
 </script> -->
-
-
- 
-
-
-
-
