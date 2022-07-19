@@ -1,5 +1,5 @@
 <style>
-  .backgroundLoading{
+  .backgroundLoading {
     top: 0;
     left: 0;
     height: 100%;
@@ -11,7 +11,7 @@
   }
 
 
-  .loaderJpg{ 
+  .loaderJpg {
 
     width: 7rem;
     height: 7rem;
@@ -24,7 +24,6 @@
     /*margin: 0 auto;*/
     top: 70%;
   }
-
 </style>
 
 <link rel="stylesheet" id='compiled.css-css' media="all" href="<?php echo base_url('assets/node_modules/_core/css/core.min.css') ?>">

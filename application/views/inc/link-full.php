@@ -21,34 +21,32 @@
   <link rel='stylesheet' href="<?php echo base_url('assets/node_modules/fullcalendar/dist/fullcalendar.css'); ?>" />
   <link rel='stylesheet' href="<?php echo base_url('assets/jquery-ui/jquery-ui.css'); ?>" />
 
-<link rel="stylesheet" href="<?php echo base_url('assets/pickadate/lib/themes/classic.date.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/pickadate/lib/themes/classic.date.css') ?>">
 
-<link rel="stylesheet" href="<?php echo base_url('assets/node_modules/lightbox2/dist/css/lightbox.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/node_modules/lightbox2/dist/css/lightbox.css') ?>">
 
-<?php 
-		if (empty($_GET['code'])) {
-		
-		?>
-		  <script src="<?php echo base_url('assets/node_modules/sweetalert2/dist/sweetalert2.all.js') ?>"></script>
-		
-		<?php
-		}
+  <?php
+  if (empty($_GET['code'])) {
 
- ?>
-  
+  ?>
+    <script src="<?php echo base_url('assets/node_modules/sweetalert2/dist/sweetalert2.all.js') ?>"></script>
+
+  <?php
+  }
+
+  ?>
 
 
-  
+
+
   <script>
-
-    let base_url = '<?php echo base_url();?>'
-
+    let base_url = '<?php echo base_url(); ?>'
   </script>
 </head>
 
 
 <script>
-  function redirectPesan(type='error',pesan) {
+  function redirectPesan(type = 'error', pesan) {
     Swal.fire({
       type: type,
       title: pesan,
@@ -57,7 +55,7 @@
     })
   }
 
-  function confirmHapus(judul='tidak ada judul',pesan='tidak ada pesan',pindah='<?php echo base_url();?>') {
+  function confirmHapus(judul = 'tidak ada judul', pesan = 'tidak ada pesan', pindah = '<?php echo base_url(); ?>') {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -75,11 +73,11 @@
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        window.location=pindah;
-      }else if (
-    // Read more about handling dismissals
-    result.dismiss === Swal.DismissReason.cancel
-    ) {
+        window.location = pindah;
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
 
       }
     })
@@ -92,7 +90,7 @@
 <script src="<?php echo base_url('assets/node_modules/_core/js/core.min.js') ?>"></script>
 <!-- Javascript -->
 
-<script src="<?php echo base_url('assets/node_modules/_core/js/file-upload.js') ?>"></script>  
+<script src="<?php echo base_url('assets/node_modules/_core/js/file-upload.js') ?>"></script>
 <script src="<?php echo base_url('assets/node_modules/jquery-validation/dist/jquery.validate.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/node_modules/jquery-validation/dist/localization/messages_id.js') ?>"></script>
 <script src="<?php echo base_url('assets/node_modules/chart.js/dist/Chart.bundle.js') ?>"></script>
@@ -105,62 +103,53 @@
 <script src="<?php echo base_url('assets/pickadate/lib/picker.date.js') ?>"></script>
 
 
-<script src="<?php echo base_url('assets/node_modules/lightbox2/dist/js/lightbox.js') ?>" ></script>
+<script src="<?php echo base_url('assets/node_modules/lightbox2/dist/js/lightbox.js') ?>"></script>
 
 
 
 
-  <script>
+<script>
+  $(".ambilTanggal").datepicker({
+    // showAnim: "fold",
+    dateFormat: "yy-mm-dd",
+    monthNames: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 
-    $(".ambilTanggal").datepicker({
-          // showAnim: "fold",
-          dateFormat: "yy-mm-dd", 
-          monthNames: [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" ],
-
-        });
-      </script>
-
-      <script>
-
-// Indonesian datepicker
-
-jQuery.extend( jQuery.fn.pickadate.defaults, {
-  monthsFull: [ 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember' ],
-  monthsShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des' ],
-  weekdaysFull: [ 'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu' ],
-  weekdaysShort: [ 'Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab' ],
-  firstDay: 1,
-  format: 'd mmmm yyyy',
-  formatSubmit: 'yyyy-mm-dd',
-  hiddenName: true
-});
-
-
-$('.datepicker').pickadate({
-  selectMonths: 12,
-  selectYears: 100,
-  formatSubmit: 'yyyy-mm-dd',  max: true
-});
-$('.datepickerNow').pickadate({
-  selectMonths: true,
-  selectYears: true,
-  formatSubmit: 'yyyy-mm-dd',
-  max: true,
-
-});
-$('.datepickerNow').pickadate('set').set('select', new Date());
-$('.datepickerBooking').pickadate({
-  selectMonths: true,
-  selectYears: true,
-  formatSubmit: 'yyyy-mm-dd',
-  min:true,
-});
-
+  });
 </script>
 
+<script>
+  // Indonesian datepicker
 
- 
+  jQuery.extend(jQuery.fn.pickadate.defaults, {
+    monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+    weekdaysFull: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+    weekdaysShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+    firstDay: 1,
+    format: 'd mmmm yyyy',
+    formatSubmit: 'yyyy-mm-dd',
+    hiddenName: true
+  });
 
 
+  $('.datepicker').pickadate({
+    selectMonths: 12,
+    selectYears: 100,
+    formatSubmit: 'yyyy-mm-dd',
+    max: true
+  });
+  $('.datepickerNow').pickadate({
+    selectMonths: true,
+    selectYears: true,
+    formatSubmit: 'yyyy-mm-dd',
+    max: true,
 
-
+  });
+  $('.datepickerNow').pickadate('set').set('select', new Date());
+  $('.datepickerBooking').pickadate({
+    selectMonths: true,
+    selectYears: true,
+    formatSubmit: 'yyyy-mm-dd',
+    min: true,
+  });
+</script>

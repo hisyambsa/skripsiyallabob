@@ -27,4 +27,3 @@ include("config.php");
 	}else{
 		die("Akses Dilarang...");
 	}
-?>

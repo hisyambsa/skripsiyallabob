@@ -1,6 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -9,7 +10,7 @@ class Login extends CI_Controller {
 
 
 		$admin = array(
-			'judul' => 'BERANDA ADMIN', 
+			'judul' => 'BERANDA ADMIN',
 		);
 		// $this->load->view('inc/link-head-admin',$admin);
 		// $this->load->view('admin/sidebar');
@@ -18,9 +19,9 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'judul' => 'Skripsi_Hasan', 
+			'judul' => 'Skripsi_Hasan',
 		);
-		$this->load->view('inc/link-head-admin',$data);
+		$this->load->view('inc/link-head-admin', $data);
 		$this->load->view('user/login');
 		$this->load->view('inc/footer-js-admin');
 	}
@@ -40,18 +41,18 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($data);
 			$messages = 'login succes';
 			$this->session->set_tempdata('pesan', $messages, 5);
-			redirect('admin','refresh');
+			redirect('admin', 'refresh');
 		} else {
 			$messages = 'login gagal';
 			$this->session->set_tempdata('pesan', $messages, 5);
-			redirect('login','refresh');
+			redirect('login', 'refresh');
 		}
 	}
 	public function beranda()
 	{
-		if ($this->session->userdata('akses')==0) {
+		if ($this->session->userdata('akses') == 0) {
 			$this->load->view('admin/beranda');
-		}elseif ($this->session->userdata('akses')==2) {
+		} elseif ($this->session->userdata('akses') == 2) {
 			$this->load->view('admin/beranda');
 		}
 		$this->load->view('inc/footer-js-admin');
@@ -61,10 +62,9 @@ class Login extends CI_Controller {
 	{
 		$messages = 'logout berhasil';
 		$this->session->set_tempdata('pesan', $messages, 5);
-		$this->session->sess_destroy();	
-		redirect('login','refresh');
+		$this->session->sess_destroy();
+		redirect('login', 'refresh');
 	}
-
 }
 
 /* End of file Admin.php */

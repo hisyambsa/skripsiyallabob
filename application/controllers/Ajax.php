@@ -1,6 +1,7 @@
-<?php 
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Ajax extends CI_Controller {
+<?php
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+class Ajax extends CI_Controller
+{
 
 
   public function __construct()
@@ -18,7 +19,7 @@ class Ajax extends CI_Controller {
 
     if ($loginadmin) {
       echo "true";
-    }else{
+    } else {
       echo "false";
     }
   }
@@ -38,17 +39,16 @@ class Ajax extends CI_Controller {
 
     $jamSekarang = date('Y-m-d H:i:s');
 
-    if ($row->status==2) {
+    if ($row->status == 2) {
 
       $data = array(
-        'status' => '1', 
-        'update_time' => $jamSekarang, 
+        'status' => '1',
+        'update_time' => $jamSekarang,
       );
-
-    }elseif ($row->status==1) {
+    } elseif ($row->status == 1) {
       $data = array(
-        'status' => '2', 
-        'update_time' => $jamSekarang, 
+        'status' => '2',
+        'update_time' => $jamSekarang,
       );
     }
     $total = $this->data_peserta_model->update($id_data_peserta, $data);
@@ -66,7 +66,7 @@ class Ajax extends CI_Controller {
     $id_data_peserta   = $this->input->post('id_data_peserta');
     $id_nomor_hp   = $this->input->post('id_nomor_hp');
 
-    $data = array('nomor_hp' => $id_nomor_hp, );
+    $data = array('nomor_hp' => $id_nomor_hp,);
     $total = $this->data_peserta_model->update($id_data_peserta, $data);
 
 
@@ -76,13 +76,12 @@ class Ajax extends CI_Controller {
     $myJSON = json_encode($myObj);
 
     echo $myJSON;
-
   }
 
   public function total()
   {
     $this->load->model('data_peserta_model');
-    $data_status = array("0","1", "2", "3");
+    $data_status = array("0", "1", "2", "3");
     $total = $this->data_peserta_model->total_rows();
     echo $total;
   }
@@ -119,7 +118,6 @@ class Ajax extends CI_Controller {
     $total = $this->data_peserta_model->reset_status($data_status);
     echo $total;
   }
-
 }
 /* End of file Ajax.php */
 /* Location: ./application/controllers/Ajax.php */

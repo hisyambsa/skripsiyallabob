@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH'))
-exit('No direct script access allowed');
+    exit('No direct script access allowed');
 class Data_peserta_model extends CI_Model
 {
 
@@ -27,16 +27,17 @@ class Data_peserta_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
-        // get data by id
+    // get data by id
     function get_by_no_registrasi($id)
     {
         $this->db->where($this->no_registrasi, $id);
         return $this->db->get($this->table)->row();
     }
 
-    
+
     // get total rows
-    function total_rows($status = NULL, $q = NULL) {
+    function total_rows($status = NULL, $q = NULL)
+    {
 
         if ($status != NULL) {
             foreach ($status as $data => $value) {
@@ -49,7 +50,8 @@ class Data_peserta_model extends CI_Model
 
 
     // get data with limit and search
-    function get_limit_data($limit, $start = 0, $q = NULL) {
+    function get_limit_data($limit, $start = 0, $q = NULL)
+    {
         $this->db->order_by($this->id, $this->order);
 
         $this->db->limit($limit, $start);
@@ -84,7 +86,6 @@ class Data_peserta_model extends CI_Model
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
-
 }
 
 /* End of file Wo_include_model.php */
