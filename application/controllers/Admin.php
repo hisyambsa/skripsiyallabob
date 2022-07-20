@@ -7,6 +7,11 @@ class Admin extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('grocery_CRUD');
+		if ($this->session->userdata('logged') == false) {
+			// redirect them to the login page
+			$this->session->set_flashdata('message', 'Anda belum Login');
+			redirect('login', 'refresh');
+		}
 	}
 	private function _example_output($output = null)
 	{
@@ -15,10 +20,12 @@ class Admin extends CI_Controller
 
 	public function data()
 	{
+
 		$data = array(
 			'judul' => 'ADMIN SCAN',
 		);
 		$this->load->view('inc/link-head-admin', $data);
+		$this->load->view('inc/header', $data);
 		$crud = new grocery_CRUD();
 		$crud->set_table('data_peserta');
 		$crud->set_theme('datatables');
@@ -41,6 +48,10 @@ class Admin extends CI_Controller
 
 		$crud->callback_after_insert(array($this, 'log_user_after_insert'));
 		$crud->callback_column('status', array($this, '_callback_status'));
+		$crud->callback_read_field('link', function ($value, $primary_key) {
+			return $value . '       <a class="btn btn-danger text-white" href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=' . $value . '" target="_blank" rel="noopener noreferrer"><i class="fas fa-qrcode"></i> CREATE QR-CODE</a>';
+		});
+
 		$output = $crud->render();
 		$this->_example_output($output);
 		$this->load->view('inc/footer-js-crud');

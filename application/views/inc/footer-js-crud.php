@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="py-2">
-        <button class="btn btn-danger" id="idReset">RESET STATUS</button>
+        <button class="btn btn-success" id="idReset">RESET STATUS</button>
     </div>
 
     <p class="text-black text-me mt-2"><?php echo 'Dev By @yallabob' ?></p>

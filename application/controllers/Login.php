@@ -23,7 +23,7 @@ class Login extends CI_Controller
 		);
 		$this->load->view('inc/link-head-admin', $data);
 		$this->load->view('user/login');
-		$this->load->view('inc/footer-js-admin');
+		// $this->load->view('inc/footer-js-admin');
 	}
 	public function auth()
 	{
@@ -41,7 +41,7 @@ class Login extends CI_Controller
 			$this->session->set_userdata($data);
 			$messages = 'login succes';
 			$this->session->set_tempdata('pesan', $messages, 5);
-			redirect('admin', 'refresh');
+			redirect('admin/data', 'refresh');
 		} else {
 			$messages = 'login gagal';
 			$this->session->set_tempdata('pesan', $messages, 5);
